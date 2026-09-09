@@ -125,10 +125,6 @@ function initScrollReveal() {
 /**
  * Professional Enquiry Form Handler (Saves locally, validates inputs, simulates submission feedback status)
  */
-/**
- * Professional Enquiry Form Handler
- * Sends enquiries through FormSubmit.
- */
 function initContactForm() {
     const form = document.getElementById("mesjat-enquiry-form");
     const feedback = document.getElementById("form-feedback-message");
@@ -171,7 +167,16 @@ function initContactForm() {
         try {
             const formData = new FormData(form);
 
-            const response = await fetch(form.action, {
+            /*
+             * FormSubmit AJAX endpoint.
+             * IMPORTANT:
+             * Do not use form.action here because the normal
+             * FormSubmit endpoint returns an HTML response.
+             */
+            const endpoint =
+                "https://formsubmit.co/ajax/mesjatsecltd@gmail.com";
+
+            const response = await fetch(endpoint, {
                 method: "POST",
                 body: formData,
                 headers: {
@@ -179,27 +184,49 @@ function initContactForm() {
                 }
             });
 
-            const result = await response.json();
+            /*
+             * Read the response as text first.
+             * This prevents JSON.parse errors if FormSubmit
+             * returns an unexpected HTML response.
+             */
+            const responseText = await response.text();
 
-            if (response.ok && result.success !== false) {
+            console.log("FormSubmit response:", responseText);
 
-                console.log("MESJAT SECURITY enquiry submitted successfully.");
+            let result = null;
 
-                showFormFeedback(
-                    feedback,
-                    `<strong>Enquiry received!</strong><br>
-                    Thank you for contacting MESJAT Security.
-                    A member of our team will contact you shortly.`,
-                    "success"
+            try {
+                result = JSON.parse(responseText);
+            } catch (parseError) {
+                console.error(
+                    "FormSubmit did not return JSON:",
+                    responseText
                 );
 
-                form.reset();
+                throw new Error(
+                    "The email service returned an unexpected response."
+                );
+            }
 
-            } else {
+            if (!response.ok || result.success === false) {
                 throw new Error(
                     result.message || "Unable to submit the enquiry."
                 );
             }
+
+            console.log(
+                "MESJAT SECURITY enquiry submitted successfully."
+            );
+
+            showFormFeedback(
+                feedback,
+                `<strong>Enquiry received!</strong><br>
+                Thank you for contacting MESJAT Security.
+                A member of our team will contact you shortly.`,
+                "success"
+            );
+
+            form.reset();
 
         } catch (error) {
 
@@ -216,6 +243,7 @@ function initContactForm() {
             );
 
         } finally {
+
             submitBtn.disabled = false;
             submitBtn.textContent = originalText;
         }
