@@ -2001,3 +2001,107 @@ body {
         overflow-wrap: break-word;
     }
 }
+
+/* ==================================================
+   INDUSTRIES PAGE - MOBILE LAYOUT FIX
+   Properly stacks inline grids on small screens
+================================================== */
+
+@media (max-width: 768px) {
+
+    /* Main industry sections:
+       Override the inline 2-column grid */
+    #industries-main > .container > div > div {
+        grid-template-columns: 1fr !important;
+        gap: 30px !important;
+        width: 100%;
+        min-width: 0;
+    }
+
+    /* Prevent individual columns from becoming wider
+       than the available screen */
+    #industries-main > .container > div > div > div {
+        width: 100%;
+        min-width: 0;
+        max-width: 100%;
+    }
+
+    /* Make the dark/light information panels fit naturally */
+    #industries-main > .container > div > div > div[style*="background-color"] {
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+
+    /* "Sectors Serviced" lists:
+       Change the inline 2-column grid to one column */
+    #industries-main > .container > div > div > div > div[style*="grid-template-columns"] {
+        grid-template-columns: 1fr !important;
+        width: 100%;
+        min-width: 0;
+    }
+
+    /* Individual sector items */
+    #industries-main > .container > div > div > div > div[style*="grid-template-columns"] > div {
+        width: 100%;
+        min-width: 0;
+        max-width: 100%;
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+    }
+
+    /* Prevent long headings/text from forcing width */
+    #industries-main h2,
+    #industries-main h3,
+    #industries-main h4,
+    #industries-main p {
+        max-width: 100%;
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+    }
+
+    /* Reduce spacing inside the information panels */
+    #industries-main > .container > div > div > div[style*="background-color"] {
+        padding: 28px 22px !important;
+    }
+
+}
+
+/* ==================================================
+   EXTRA SMALL PHONES
+================================================== */
+
+@media (max-width: 480px) {
+
+    #industries-main > .container > div {
+        gap: 45px !important;
+    }
+
+    #industries-main > .container > div > div {
+        gap: 24px !important;
+        padding-bottom: 35px !important;
+    }
+
+    #industries-main h2 {
+        font-size: 1.35rem !important;
+        line-height: 1.25;
+    }
+
+    #industries-main h3 {
+        font-size: 1rem !important;
+    }
+
+    #industries-main h4 {
+        font-size: 0.85rem;
+    }
+
+    #industries-main p {
+        font-size: 0.78rem;
+        line-height: 1.55;
+    }
+
+    #industries-main > .container > div > div > div[style*="background-color"] {
+        padding: 24px 18px !important;
+    }
+
+}
