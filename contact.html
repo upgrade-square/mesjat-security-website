@@ -183,66 +183,170 @@
                     <!-- Feedback Notification element -->
                     <div id="form-feedback-message" class="form-feedback"></div>
 
-                    <form id="mesjat-enquiry-form" novalidate>
-                        <div class="form-group">
-                            <label for="full-name" class="form-label">Full Name <span
-                                    style="color:var(--brand-red);">*</span></label>
-                            <input type="text" id="full-name" class="form-control" placeholder="e.g. John Doe" required>
-                        </div>
+                                   <form id="mesjat-enquiry-form"
+    action="https://formsubmit.co/mesjatsecltd@gmail.com"
+    method="POST"
+    novalidate>
 
-                        <div class="form-group">
-                            <label for="organization" class="form-label">Organization / Company</label>
-                            <input type="text" id="organization" class="form-control" placeholder="e.g. Enterprise Ltd">
-                        </div>
+    <!-- FormSubmit Configuration -->
+    <input type="hidden" name="_subject" value="New Security Enquiry — MESJAT Security">
+    <input type="hidden" name="_template" value="table">
+    <input type="hidden" name="_captcha" value="true">
+    <input type="hidden" name="_url" value="https://mesjatsecurity.com/contact.html">
 
-                        <div class="form-group-grid">
-                            <div class="form-group">
-                                <label for="phone-number" class="form-label">Phone Number <span
-                                        style="color:var(--brand-red);">*</span></label>
-                                <input type="tel" id="phone-number" class="form-control" placeholder="e.g. 0712345678"
-                                    required>
-                            </div>
-                            <div class="form-group">
-                                <label for="email-address" class="form-label">Email Address</label>
-                                <input type="email" id="email-address" class="form-control"
-                                    placeholder="e.g. name@domain.com">
-                            </div>
-                        </div>
+    <div class="form-group">
+        <label for="full-name" class="form-label">
+            Full Name
+            <span style="color:var(--brand-red);">*</span>
+        </label>
 
-                        <div class="form-group-grid">
-                            <div class="form-group">
-                                <label for="location-service" class="form-label">Property Location</label>
-                                <input type="text" id="location-service" class="form-control"
-                                    placeholder="e.g. Bungoma Town, Nairobi">
-                            </div>
-                            <div class="form-group">
-                                <label for="service-type" class="form-label">Service Required <span
-                                        style="color:var(--brand-red);">*</span></label>
-                                <select id="service-type" class="form-control" required style="appearance: auto;">
-                                    <option value="" disabled selected>-- Select Official Service --</option>
-                                    <option value="static-guarding">Manned Guarding / Static Security</option>
-                                    <option value="mobile-patrols">Mobile Patrols</option>
-                                    <option value="event-security">Event Security</option>
-                                    <option value="cctv-surveillance">CCTV Monitoring & Surveillance</option>
-                                    <option value="alarm-response">Alarm Response & Key Holding</option>
-                                    <option value="vip-protection">VIP & Executive Protection</option>
-                                    <option value="k9-handling">Dog Handling (K9)</option>
-                                    <option value="consultancy">Security Consultancy</option>
-                                </select>
-                            </div>
-                        </div>
+        <input
+            type="text"
+            id="full-name"
+            name="name"
+            class="form-control"
+            placeholder="e.g. John Doe"
+            required>
+    </div>
 
-                        <div class="form-group">
-                            <label for="enquiry-message" class="form-label">Enquiry details <span
-                                    style="color:var(--brand-red);">*</span></label>
-                            <textarea id="enquiry-message" class="form-control"
-                                placeholder="Describe the size of your compound, gate patterns, or event dates..."
-                                required></textarea>
-                        </div>
+    <div class="form-group">
+        <label for="organization" class="form-label">
+            Organization / Company
+        </label>
 
-                        <button type="submit" class="btn btn-navy" style="width: 100%; padding: 16px;">REQUEST SECURITY
-                            ASSISTANCE</button>
-                    </form>
+        <input
+            type="text"
+            id="organization"
+            name="organization"
+            class="form-control"
+            placeholder="e.g. Enterprise Ltd">
+    </div>
+
+    <div class="form-group-grid">
+
+        <div class="form-group">
+            <label for="phone-number" class="form-label">
+                Phone Number
+                <span style="color:var(--brand-red);">*</span>
+            </label>
+
+            <input
+                type="tel"
+                id="phone-number"
+                name="phone"
+                class="form-control"
+                placeholder="e.g. 0712345678"
+                required>
+        </div>
+
+        <div class="form-group">
+            <label for="email-address" class="form-label">
+                Email Address
+            </label>
+
+            <input
+                type="email"
+                id="email-address"
+                name="email"
+                class="form-control"
+                placeholder="e.g. name@domain.com">
+        </div>
+
+    </div>
+
+    <div class="form-group-grid">
+
+        <div class="form-group">
+            <label for="location-service" class="form-label">
+                Property Location
+            </label>
+
+            <input
+                type="text"
+                id="location-service"
+                name="location"
+                class="form-control"
+                placeholder="e.g. Bungoma Town, Nairobi">
+        </div>
+
+        <div class="form-group">
+            <label for="service-type" class="form-label">
+                Service Required
+                <span style="color:var(--brand-red);">*</span>
+            </label>
+
+            <select
+                id="service-type"
+                name="service"
+                class="form-control"
+                required
+                style="appearance: auto;">
+
+                <option value="" disabled selected>
+                    -- Select Official Service --
+                </option>
+
+                <option value="static-guarding">
+                    Manned Guarding / Static Security
+                </option>
+
+                <option value="mobile-patrols">
+                    Mobile Patrols
+                </option>
+
+                <option value="event-security">
+                    Event Security
+                </option>
+
+                <option value="cctv-surveillance">
+                    CCTV Monitoring & Surveillance
+                </option>
+
+                <option value="alarm-response">
+                    Alarm Response & Key Holding
+                </option>
+
+                <option value="vip-protection">
+                    VIP & Executive Protection
+                </option>
+
+                <option value="k9-handling">
+                    Dog Handling (K9)
+                </option>
+
+                <option value="consultancy">
+                    Security Consultancy
+                </option>
+
+            </select>
+        </div>
+
+    </div>
+
+    <div class="form-group">
+
+        <label for="enquiry-message" class="form-label">
+            Enquiry details
+            <span style="color:var(--brand-red);">*</span>
+        </label>
+
+        <textarea
+            id="enquiry-message"
+            name="message"
+            class="form-control"
+            placeholder="Describe the size of your compound, gate patterns, or event dates..."
+            required></textarea>
+
+    </div>
+
+    <button
+        type="submit"
+        class="btn btn-navy"
+        style="width: 100%; padding: 16px;">
+        REQUEST SECURITY ASSISTANCE
+    </button>
+
+</form>
                 </div>
 
             </div>

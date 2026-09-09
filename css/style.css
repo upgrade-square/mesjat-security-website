@@ -1382,3 +1382,28 @@ textarea.form-control {
         grid-template-columns: 1fr;
     }
 }
+
+
+/* ==========================================
+   WEBSITE DEVELOPER CREDIT
+   ========================================== */
+
+.website-credit {
+    font-size: 0.82rem;
+    color: var(--color-gray-200);
+    text-align: center;
+    margin: 8px 0;
+    line-height: 1.5;
+}
+
+.website-credit a {
+    color: var(--color-light);
+    font-weight: 700;
+    text-decoration: none;
+    transition: color 0.25s ease;
+}
+
+.website-credit a:hover {
+    color: var(--brand-red);
+    text-decoration: underline;
+}
